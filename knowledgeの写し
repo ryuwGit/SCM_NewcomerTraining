@@ -1,0 +1,96 @@
+# 1. 進め方
+[リポジトリ](https://github.com/ryuwGit/SCM_NewcomerTraining)をクローンし、READMEの手順に従って進めてください。
+
+# 2. スケジュール
+## ①Vue Hands-on（公式）
+[こちら](https://dreamy-mayer-954170.netlify.com/)より、イントロダクション→セットアップ→ハンズオンの順で進めてください。
+
+### 1 week
+- Hello World
+- ライフサイクルフックとリアクティブシステム
+- ディレクティブ
+
+### 2 week
+- フォーム
+- 算出プロパティとウォッチャ
+
+### 3 week
+- クラスとスタイル
+- 条件によるレンダリング
+
+### 4 week 
+- リストのレンダリング
+- コンポーネント
+
+##  ②Vue.js+Vuex Hands-on
+SekiPaの検索窓を作ります。
+資料は[こちら](http://172.26.100.22/knowledge/open.knowledge/view/115)からダウンロードしてください。
+- リポジトリ：[vuex-handson](https://github.com/kurimeg/vuex-handson)
+
+### 5 week
+- 開発環境とディレクトリ構成
+
+### 6 week
+- 初期表示
+
+### 7 week
+- 表示/非表示の切替
+
+### 8 week 
+- 社員情報の全件表示
+
+### 9 week 
+- 検索処理①　入力値のバインド
+
+### 10 week 
+- 検索処理②　入力値による絞り込み
+
+# 3. 環境設定
+## Git
+1. インストール  
+[Git](https://git-scm.com/downloads)より最新版をインストールする。  
+手順や選択項目などは[こちら](https://qiita.com/toshi-click/items/dcf3dd48fdc74c91b409)を参照。
+
+2. 初期設定  
+インストール後、[こちら](https://qiita.com/wnoguchi/items/f7358a227dfe2640cce3)の「ユーザー情報を設定する」を行う。
+
+## GitHub
+1. [GitHub](https://github.com/)よりアカウント作成
+2. 管理者(栗原)へリポジトリのContributorへの招待を依頼
+
+## Node.js
+1. インストール  
+Node.jsのバージョン管理ツールであるnodistより、最新版のNode.jsをインストールする。  
+手順は[こちら](https://qiita.com/nt_tn/items/f3193cde496399b41e51)を参照。
+
+## Visual Studio Code
+1. インストール  
+[Visual Studio Code](https://azure.microsoft.com/ja-jp/products/visual-studio-code/)よりインストールする。  
+
+2. 拡張機能設定  
+Visual Studio Codeを起動し、左タブより以下の拡張機能をインストールする。
+    - Vetur
+    - ESLint
+
+## Vue.js devtools（Chrome拡張機能）
+1. インストール  
+[chrome ウェブストア](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)よりインストールする。
+
+# 4. JavaScript参考サイト
+JavaScriptは2015年より記法がぐっと新しくなり、
+ネットでの情報もどのバージョンか確認しながら見てみてください。
+## ドットインストール
+全部やる必要は全くありませんが、「詳解JavaScript DOM編」がわかるようなレベルになるとハンズオンにも取り組みやすいかと思います。
+- [はじめてのJavaScript](https://dotinstall.com/lessons/basic_javascript_v3)
+- [詳解JavaScript 基礎文法編](https://dotinstall.com/lessons/basic_javascript_grammer)
+- [詳解JavaScript オブジェクト編](https://dotinstall.com/lessons/basic_javascript_objects)
+- [詳解JavaScript DOM編](https://dotinstall.com/lessons/basic_javascript_dom)
+
+## freeCodeCamp
+英語ですが、全て無料で体系的にまとまっていておすすめです。
+こちらもES6の中のコードがわかるようになるとハンズオンにも取り組みやすいかと思います。
+[freeCodeCamp](https://www.freecodecamp.org/)
+- Curriculum
+	- Javascript Algorithms And Data Structures Certification (300 hours)
+		- Basic JavaScript
+		- ES6
