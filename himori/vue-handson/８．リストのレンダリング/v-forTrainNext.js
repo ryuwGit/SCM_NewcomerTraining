@@ -1,4 +1,4 @@
-new Vue({
+const vm = new Vue({
     el: '#app',
     data: {
       newTask: '',
@@ -7,11 +7,14 @@ new Vue({
     methods: {
       add () {
         if (!this.newTask) { return }
-        this.todoList.push(this.newTask)
+        this.todoList.push({
+          name: this.newTask, 
+          done: false
+        })
         this.newTask = ''
       },
-      deleteTask (index) {
-        this.todoList.splice(index, 1)
+      deleteTask (i) {
+        this.todoList.splice(i, 1)
       }
     }
   })

@@ -10,15 +10,16 @@
             <label>タスクを追加 : <input type="text" v-model.trim="newTask"  v-on:keyup.enter="add"></label>
             <br>
             <label>登録されたタスク：</label>
-          
-              <li v-for="(todo, i) in todoList">
+              <li v-for="(todo,i) in todoList">
                 <label>
-                  <span>{{ todo }}</span>
+                  <input type="checkbox"  v-model="todo.done">
+                  <del v-if="todo.done">{{ todo.name }}</del>
+                  <span v-else>{{ todo.name }}</span>
                   <button v-on:click="deleteTask(i)">削除</button>
                 </label>
               </li>
-           
-        <script src="./v-forTrain.js"></script>     
-    </div>
+        </div>
+        <script src="./v-forTrainNext.js"></script>     
+   
   </body>    
 </html>
