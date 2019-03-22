@@ -1,0 +1,16 @@
+{
+    "tasks": [
+        {
+            "type": "npm",
+            "script": "dev",
+            "path": "kurihara/vuex-handson/",
+            "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "build",
+            "path": "SCM_NewcomerTraining/kurihara/vuex-handson/",
+            "problemMatcher": []
+        }
+    ]
+}
