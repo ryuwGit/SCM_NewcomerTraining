@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Hands-on</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id = "app">
+      <input type = "text" @input = "giveValToMsg" :value = "msg">
+      <p v-text = "msg"></p>
+    </div>
+    <script type="text/javascript" src="./directive.js"></script>
+  </body>
+</html>
