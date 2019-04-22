@@ -14,7 +14,7 @@
 </html>
 
 <script>
-    new Vue({
+    const hello = new Vue({
       el:'#hello',
       data: {
         message: 'Hello world!!'        
