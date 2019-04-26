@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Hands-on</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js">
+	</script>
+  </head>
+  <body>
+	  <div id="app" >
+		  <label v-if="isShow">if:{{ message }}</label>
+		  <br>
+		  <label v-show="isShow">show:{{ message }}</label>
+		  <br>
+		  <label><input type="text" v-model="isShow"></label>
+	  </div>
+
+  </body>
+  <script>
+	new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello World!',
+          isShow: true,
+        }
+	})
+  </script>
+</html>

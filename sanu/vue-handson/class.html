@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Hands-on</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js">
+	</script>
+  </head>
+  <body>
+	  <div id="app" v-bind:class="{ message : hasMessage }" v-bind:style="messageStyle">
+		  {{ message }}
+	  </div>
+  </body>
+  <script>
+	var app = new Vue({
+		el: '#app',
+		data: {
+			message: 'Hello World!',
+			hasMessage: true,
+			messageStyle:{
+				color: 'white',
+				backgroundColor: 'red'
+			}
+		}
+	})
+  </script>
+</html>

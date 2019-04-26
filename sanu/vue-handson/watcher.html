@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Hands-on-5</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  </head>
+  <body>
+      <div id="app">
+        <label>FirstName<input type="text" v-model="firstName"></label>
+        <label>LastName<input type="text" v-model="lastName"></label>
+        <p>Full Name is:{{ fullName }}</p>   
+        <script>
+			const vm = new Vue({
+			el: '#app',
+			data: {
+				firstName: '',
+				lastName: ''
+			},
+			computed: {
+				fullName () {
+				return this.firstName+ ' ' + this.lastName
+				}
+			}
+		})
+		</script>    
+    </div>
+  </body>    
+</html>
