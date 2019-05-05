@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue Hands-on: PropertyAndWatcher_computed</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+  <h1>Vue Hands-on: PropertyAndWatcher_computed!</h1>
+  <!-- テンプレート -->
+  <div id="app">
+    <label>姓：</label><input v-model="inputTextFamilyName" placeholder="your FamilyName">
+    <label>名前：</label><input v-model="inputTextFirstName" placeholder="your firstName">
+    <h2>↓↓&lt;p&gt;に出す文字列↓↓<br>
+      <hr>
+      <p>{{inputTextCombinedName}}</p>
+    </h2>
+  </div>
+
+  <!--アプリケーションコード -->
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        inputTextFirstName: ""
+        , inputTextFamilyName: ""
+      }
+      , computed: {
+        inputTextCombinedName: function () {
+          return this.inputTextFamilyName + " " + this.inputTextFirstName
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

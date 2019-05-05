@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue Hands-on: ListRendering!</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+  <h1>Vue Hands-on: ListRendering!</h1>
+  <!-- テンプレート -->
+  <div id="app">
+    <label>タスク：</label>
+    <input type="textbox" v-model="inputText">
+    <input type="button" v-on:click="registerTask()" value="登録">
+
+    <hr>
+
+      <label>登録されたタスク</label>
+      <div id="eachTask" v-for="(oneTask,index) in registeredTasks">
+        <li v-bind:class="{ done : oneTask.done }">
+        <input type="checkbox" v-on:click="swithDoneStatus(index)">
+        <input type="button" v-on:click="deleteTask(index)"  value="削除">
+          {{ oneTask.name }}
+        </li>
+      </div>
+  </div>
+
+  <!--アプリケーションコード -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        inputText: ''
+        , registeredTasks:[]
+      },
+      methods: {
+        //登録
+        registerTask(e) {
+          this.registeredTasks.push({
+            name: this.inputText
+            ,done: false
+          })
+        }
+        //削除
+        , deleteTask(index) {
+          this.registeredTasks.splice(index, 1)
+        }
+        //ステータス切り替え
+        , swithDoneStatus(index) {
+          this.registeredTasks[index].done = !this.registeredTasks[index].done
+        }
+      }
+    })
+  </script>
+
+  <style>
+    .done{
+      color: red;
+      text-decoration: line-through;
+    }
+  </style>
+
+</body>
+
+</html>

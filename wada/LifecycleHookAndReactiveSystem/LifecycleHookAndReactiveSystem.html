@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue Hands-on: LifecycleHookAndReactiveSystem</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+  <h1>Vue Hands-on: LifecycleHookAndReactiveSystem!</h1>
+  <!-- テンプレート -->
+  <div id="app">
+    <h2>{{ message }}</h2>
+    <h2>↓↓コンソールに出す文字列(F12押すのがだるいので)↓↓<br><hr> {{ consoleDisplay }}</h2>
+  </div>
+
+  <!--アプリケーションコード -->
+  <script>
+    var currentTime;
+    var currentTimeToDisplay;
+    function setCurrentTime() {
+      currentTime = new Date();
+      currentTimeToDisplay = currentTime.getFullYear() + "/" + (currentTime.getMonth()+1) + "/" + currentTime.getDate() + "  " + currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
+    }
+
+    new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello World!'
+        ,consoleDisplay : "まだ何もないよ"
+      },
+      watch: {
+        message(val, oldVal) {
+          setCurrentTime();
+          console.log("messageの値が「" + oldVal + "」から「" + val + "」に変わりました＠" + currentTimeToDisplay )
+          this.consoleDisplay = "messageの値が「" + oldVal + "」から「" + val + "」に変わりました＠" + currentTimeToDisplay
+        }
+      },
+      mounted: function () {
+        setCurrentTime();
+        //詰まりポイント＿アロー関数じゃなきゃダメ
+        //ちなTimeOutにしないと2秒ごとに更新し続ける＿おもろいからそのまま
+        setInterval(() => { this.message = "こんにちは 世界(DIO)＠" + currentTimeToDisplay }, 2000);
+      },
+
+
+    })
+  </script>
+</body>
+
+</html>

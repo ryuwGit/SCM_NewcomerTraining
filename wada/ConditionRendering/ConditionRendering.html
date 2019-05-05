@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue Hands-on: ConditionRendering!</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+  <h1>Vue Hands-on: ConditionRendering!</h1>
+  <!-- テンプレート -->
+  <div id="app">
+    <!-- こっちは初期描画されず、HTML要素自体を追加/削除している
+    ＿その際、非表示時は勝手にコメントアウトの文字列がついていた -->
+    <label>v-ifの方</label>
+    <input type="checkbox" v-model="displayFlg">
+    <h2 v-if="displayFlg">{{ message }}</h2>
+    <hr>
+    <!-- こっちはdisplay:noneで切り替えてる＿HTMLの要素自体は初期描画済み -->
+    <label>v-showの方</label>
+    <input type="checkbox" v-model="displayFlg_VShow">
+    <h2 v-show="displayFlg_VShow">{{ message }}</h2>
+  </div>
+
+  <!--アプリケーションコード -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello World!'
+        , displayFlg: false
+        , displayFlg_VShow: false
+      }
+    })
+  </script>
+
+</body>
+
+</html>

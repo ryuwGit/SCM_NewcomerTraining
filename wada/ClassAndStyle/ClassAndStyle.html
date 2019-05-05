@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue Hands-on: ClassAndStyle!</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+  <h1>Vue Hands-on: ClassAndStyle!</h1>
+  <!-- テンプレート -->
+  <div id="app">
+    <h2 v-bind:class="{cssStyle_class : changeStyleFlg}">フラグによって切り替えられるほう： {{ message }}</h2>
+    <h2 v-bind:style="cssStyle">切り替わらないほう： {{ message }}</h2>
+  </div>
+
+  <!--アプリケーションコード -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello World!'
+        , changeStyleFlg: false
+        , cssStyle: {
+          color: "white"
+          , backgroundColor: "red"
+        }
+      }
+    })
+  </script>
+
+  <!-- css -->
+  <style type="text/css">
+    .cssStyle_class {
+      color: white;
+      background-Color: red;
+    }
+  </style>
+
+</body>
+
+</html>

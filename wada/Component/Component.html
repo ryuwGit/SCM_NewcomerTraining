@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue Hands-on: Component!</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+  <h1>Vue Hands-on: Component!</h1>
+  <!-- テンプレート -->
+  <div id="app">
+    <label>タスク：</label>
+    <input type="textbox" v-model="inputText">
+    <input type="button" v-on:click="registerTask()" value="登録">
+
+    <hr>
+
+    <label>登録されたタスク</label>
+    <div v-for="(oneTask,index) in registeredTasks">
+        <Task v-bind:key="index" v-bind:name="oneTask.name" v-model="oneTask.done" v-on:remove="deleteTask(index)"  @change="detectChanging"/>
+    </div>
+  </div>
+
+  <!--アプリケーションコード -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        inputText: ''
+        , registeredTasks: []
+      },
+      methods: {
+        //登録
+        registerTask(e) {
+          this.registeredTasks.push({
+            name: this.inputText
+            , done: false
+          })
+        }
+        //削除
+        ,deleteTask(index) {
+          this.registeredTasks.splice(index, 1)
+        }
+        //doneチェックボックスの値が変わったときに $emit changeで親のメソッドが呼ばれる
+        ,detectChanging(checkedFlg){
+          alert("チェックボックスが"+ checkedFlg + "になったよ")
+        }
+      }
+    })
+
+    //タスクのコンポーネント
+    Vue.component('Task', {
+      data: function () {
+        return {
+          count: 0
+        }
+      }
+      ,props: {
+          name: {
+            type: String
+          },
+          done: {
+            type: Boolean,
+            default: false
+          }
+        }
+      ,model: {
+          prop: 'done',
+          event: 'change'
+        }
+      ,methods:{
+        //ステータス切り替え
+        swithDoneStatus(e) {
+          //emitしてどうのこうのは写経
+          //＿コードを追記してアラートが出るようにした⇒@change="detectChanging"を経由して、親のdetectChanging()を呼んでいる
+          this.$emit('change', e.target.checked)
+        }
+      }
+      ,template: `
+        <div id="eachTask">
+          <li v-bind:class="{ done : done }">
+            <input type="checkbox" v-bind:value="done" v-on:change="swithDoneStatus">
+            <input type="button" v-on:click="$emit('remove')" value="削除">
+            {{ name }}
+          </li>
+        </div>
+      `
+    })
+  </script>
+
+  <style>
+    .done {
+      color: red;
+      text-decoration: line-through;
+    }
+  </style>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue Hands-on: Directive</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+  <h1>Vue Hands-on: Directive!</h1>
+  <!-- テンプレート -->
+  <div id="app">
+    <input type="text" v-on:input="textSync" v-bind:value="inputText" ></h2>
+    <h2>↓↓&lt;p&gt;に出す文字列↓↓<br><hr>
+        <p v-text="inputText"></p>
+    </h2>
+  </div>
+
+  <!--アプリケーションコード -->
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        //最初はdataに二個プロパティ用意してwatchで文字の変更検知して値を設定させてたけど
+    　　//そういうことじゃないっぽかったので模範解答に寄せた
+        inputText: 'text me!'
+      },
+      methods :{
+        textSync(e){
+          this.inputText = e.target.value
+        }
+      }
+    })
+
+    //vm.inputText = "ababa" で画面の文字が変わった
+    //this.inputText～では変わらなかった
+  </script>
+</body>
+
+</html>

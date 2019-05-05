@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue Hands-on: Form</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+  <h1>Vue Hands-on: Form!</h1>
+  <!-- テンプレート -->
+  <div id="app">
+    <input v-model="inputText" placeholder="edit me">
+    <h2>↓↓&lt;p&gt;に出す文字列↓↓<br><hr>
+        <p>{{inputText}}</p>
+    </h2>
+  </div>
+
+  <!--アプリケーションコード -->
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        //↓前回のを残してただけだが、どうやらplaceholder属性よりもこっちの値の方が優先される模様
+        //＿優先っていうかタイミングの問題かもしれん(↓の方が後にやってる説)
+        inputText: 'text me!'
+      }
+    })
+  </script>
+</body>
+
+</html>
