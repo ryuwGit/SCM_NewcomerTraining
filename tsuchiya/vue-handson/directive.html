@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Hands-on</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  </head>
+  <body>
+      <h1>Vue.js:Directive</h1>
+
+    <!-- temprate -->
+    <div id="app">
+      <label>Input Text:</label>
+      <input type="text" v-model="somethingType">     
+      <p>{{ somethingType }}</p>
+    </div>
+
+    <!-- message -->
+    <script>
+    var inputText = new Vue({
+        el: '#app',
+        data:{
+          somethingType: 'sample'
+        }
+    })
+    </script>
+  </body>
+</html>
