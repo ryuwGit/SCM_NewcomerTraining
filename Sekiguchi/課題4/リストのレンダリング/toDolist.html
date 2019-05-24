@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="todo">
+            <input type="text" v-model="contents">
+            <input type="button" v-on:click="addContents()">
+            <ul>
+                <li v-for="(todos, index) in items"> 
+                    <input id="index" type="checkbox" 
+                    true-value="todos.name + '(完了)'" false-value="todos.name" v-on:click="changeStatus(index)" >
+                </li>
+            </ul>
+        </div>
+    </body>
+    <script src="./toDolist.js"></script>
+</html>

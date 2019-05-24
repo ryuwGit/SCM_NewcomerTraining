@@ -5,10 +5,14 @@
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>        
     </head>
     <body>
-        <div id="showCondition" v-bind:style="{color:activeColor, backgroundColor:backGroundColr}">
-            <input type="checkbox">
-            {{ message }}
+        <div id="showCondition">
+            <input type="checkbox" v-model="checked">
+            <p id="msg" v-if="checked">{{ message }}</p>
         </div>
-    </body>
+        <div id="vshowType">
+            <input type="checkbox" v-model="checked2">
+            <p id="msg" v-show="checked2">{{ message }}</p>
+        </div>
+    </body> 
     <script src="showCondition.js"></script>
 </html>
