@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="nameInputMethods">
+            <h4>methods使用</h4>
+            <label>苗字：</label>
+            <input type="text" v-model="firstName" v-on:input="name()">
+            <label>名前：</label>
+            <input type="text" v-model="lastName" v-on:input="name()">
+            <p v-text="fullName">{{ fullName }}</p>
+        </div>
+
+        <div id="nameInputComputed">
+            <h4>computed使用</h4>
+            <label>苗字：</label>
+            <input type="text" v-model="firstName2">
+            <label>名前：</label>
+            <input type="text" v-model="lastName2">
+            <p>{{ makeFullName }}</p>
+        </div>
+
+        <div id="nameInputWatch">
+            <h4>watch使用</h4>
+            <label>苗字：</label>
+            <input type="text" v-model="firstName3">
+            <label>名前：</label>
+            <input type="text" v-model="lastName3">
+            <p>{{ fullName3 }}</p>
+        </div>
+        
+        <div id="nameInputWatchAPI">
+            <h4>watchAPI使用</h4>
+            <label>苗字：</label>
+            <input type="text" v-model="firstName4">
+            <label>名前：</label>
+            <input type="text" v-model="lastName4">
+            <p>{{ fullName4 }}</p>
+        </div>
+    </body>
+    <script src="nameInput.js"></script>
+</html>
