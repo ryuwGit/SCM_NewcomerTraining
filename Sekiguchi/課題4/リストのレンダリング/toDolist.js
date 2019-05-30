@@ -2,8 +2,7 @@ app = new Vue({
     el:'#todo'
     ,data:{
         contents:'',
-        items:[],
-        firstflg:true
+        items:[]
     }
     ,methods: {
         addContents() {
@@ -11,9 +10,12 @@ app = new Vue({
             this.contents = '';
         },
         changeStatus(index) {
-            alert(index + '  ' + this.items[index].name);
+            this.items[index].name = this.items[index].name + "(完了)";
             this.items[index].status = true;
-
+                
+        },
+        deleteTodo(index) {
+            this.items.splice(index, 1);
         }
     }
 })

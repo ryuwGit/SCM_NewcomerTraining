@@ -7,11 +7,12 @@
     <body>
         <div id="todo">
             <input type="text" v-model="contents">
-            <input type="button" v-on:click="addContents()">
+            <input type="button" v-on:click="addContents()" value="登録">
             <ul>
                 <li v-for="(todos, index) in items"> 
-                    <input id="index" type="checkbox" 
-                    true-value="todos.name + '(完了)'" false-value="todos.name" v-on:click="changeStatus(index)" >
+                <p><input id="index" type="checkbox" v-on:click="changeStatus(index)" v-bind:disabled="todos.status">
+                    <input type="button" value="削除" @click="deleteTodo(index)">
+                    {{todos.name }}</p>
                 </li>
             </ul>
         </div>
