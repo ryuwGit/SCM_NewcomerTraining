@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="todo">
+            <input type="text" v-model="contents">
+            <input type="button" v-on:click="addContents()" value="登録">
+            <ul>
+                <li v-for="(todos, index) in items"> 
+                <p><input id="index" type="checkbox" v-on:click="changeStatus(index)" v-bind:disabled="todos.status">
+                    <input type="button" value="削除" @click="deleteTodo(index)">
+                    {{todos.name }}</p>
+                </li>
+            </ul>
+        </div>
+    </body>
+    <script src="./toDolist.js"></script>
+</html>

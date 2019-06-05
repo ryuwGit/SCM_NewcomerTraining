@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>        
+    </head>
+    <body>
+        <div id='todo'>
+            <input type="text" v-model="contents">
+            <input type="button" v-on:click="addContents()" value="登録">
+            <ul>
+                <todo-item v-for="(todos) in items"
+                v-bind:key="todos.id"
+                v-bind:todos="todos"></todo-item>
+            </ul>
+        </div>
+    </body>
+    <script src="./todoComponents.js"></script>
+</html>
