@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Hands-on</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id = "app">
+      <label>表示/非表示<input type="checkbox" v-model = "displayOrNot"></label>
+      <p v-show="displayOrNot">{{ message }}</p>
+    </div>
+    <script type="text/javascript" src="./HelloWorld3.js"></script>
+  </body>
+</html>
