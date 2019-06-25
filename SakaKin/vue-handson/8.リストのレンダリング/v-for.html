@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Vue Hands-on_8</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id = "app">
+            <input type = "text" v-bind:value = "task" v-on:input = "task = $event.target.value" v-on:keyup.enter = "AddToDo">
+            <table>
+                <thead>
+                    <th>
+                        <label>TODOLIST</label>
+                    </th>
+                    <th>
+                        <label>削除ボタン</label>
+                    </th>
+                    <th>
+                        <label>DoneCheck</label>
+                    </th>
+                </thead>
+                <tbody>
+                    <tr v-for = "(toDo, index) in ToDos">
+                        <th>
+                            {{ toDo.name }}
+                        </th>
+                        <th>
+                            <button v-on:click = "DeleteTask(index)">削除</button>
+                        </th>
+                        <th>
+                            <input type = "checkbox" v-model = "toDo.done">
+                        </th>
+                        <th v-if = "toDo.done">
+                            <label>done</label>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script type="text/javascript" src="./ToDoApp.js"></script>
+    </body>
+</html>
