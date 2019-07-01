@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Vue Hands-on_9</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id = "app">
+            <todolist>
+            </todolist>
+        </div>
+        <script>
+            const ToDoTaskTextBox = {
+                props: ['value']
+                ,template : `
+                            <input
+                                type = "text"
+                                v-bind:value = "value"
+                                v-on:input = "$emit('input', $event.target.value)"
+                                v-on:keyup.enter = "$emit('addTask')"
+                            >
+                            `
+            }
+            const ToDoTaskName = {
+                props: ['taskName']
+                ,template: '<th>{{ taskName }}</th>'
+            }
+            const ToDoDeleteButton = {
+                template: `<th><button v-on:click = "$emit('DelTask')">削除</button></th>`
+            }
+            const DoneCheck = {
+                props: ['value']
+                ,template: `
+                        <th>
+                            <input
+                                type = "checkbox"
+                                v-bind:value = "value"
+                                v-on:input = "$emit('input', $event.target.checked)"
+                            >
+                        </th>
+                        `
+            }
+            const Done = {
+                props: ['done']
+                ,template: '<th v-if = "done"><label>done</label></th>'
+            }
+            const ToDoRow = {
+                props: ['toDo'
+                        , 'index']
+                ,components: {
+                    'todotaskname': ToDoTaskName
+                    ,'tododeletebutton': ToDoDeleteButton
+                    ,'donecheck': DoneCheck
+                    ,'done': Done
+                }
+                ,template: `
+                            <tr>
+                                <todotaskname
+                                    v-bind:taskName = "toDo.name"
+                                ></todotaskname>
+                                <tododeletebutton
+                                    @DelTask = "$emit('DelToDo', index)"
+                                ></tododeletebutton>
+                                <donecheck
+                                    v-model = "toDo.done"
+                                ></donecheck>
+                                <done
+                                    v-bind:done = "toDo.done"
+                                ></done>
+                            </tr>
+                            `
+            }
+            const ThLabel = {
+                props: ['value']
+                ,template: `
+                            <th>
+                                <label>{{value}}</label>
+                            </th>
+                            `
+            }
+            const ToDoTable = {
+                props: ['ToDos']
+                ,components: {
+                    thlabel: ThLabel
+                    ,todorow: ToDoRow
+                }
+                ,template: `
+                    <table>
+                        <thead>
+                            <thlabel value = "TODOLIST"></thlabel>
+                            <thlabel value = "削除ボタン"></thlabel>
+                            <thlabel value = "DoneCheck"></thlabel>
+                        </thead>
+                        <tbody>
+                            <todorow
+                                v-for = "(toDo, index) in ToDos"
+                                v-bind:toDo = "toDo"
+                                v-bind:index = "index"
+                                @DelToDo = "$emit('deleteTask', $event)"
+                            ></todorow>
+                        </tbody>
+                    </table>
+                    `
+            }
+            const ToDoList = {
+                data: function () {
+                    return{
+                        task : ''
+                        ,ToDos : []
+                    }
+                }
+                ,components: {
+                    'todotasktextbox' : ToDoTaskTextBox
+                    ,'todotable': ToDoTable
+                }
+                ,methods : {
+                    AddToDo () {
+                        this.ToDos.push({name : this.task
+                                        ,done : false})
+                        this.task = ''
+                    }
+                    ,DeleteTask (i) {
+                        this.ToDos.splice(i, 1)
+                    }
+                }
+                ,template: `
+                        <div id = "ToDoListApp">
+                            <todotasktextbox
+                                v-bind:value = "task"
+                                v-on:input = "task = $event"
+                                @addTask = "AddToDo"
+                            ></todotasktextbox>
+                            <todotable
+                                v-bind:ToDos = "ToDos"
+                                @deleteTask = "DeleteTask($event)"
+                            ></todotable>
+                        </div>
+                        `
+            }
+            new Vue({
+                el: '#app'
+                ,components: {
+                    'todolist': ToDoList
+                }
+            })
+        </script>
+    </body>
+</html>
